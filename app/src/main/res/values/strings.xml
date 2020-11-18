@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">news_app</string>
+    <string name="app_name">News</string>
+
+    <!--  Navigation string resources  -->
+    <string name="title_news_fragment">Home</string>
+    <string name="title_fav_fragment">Favorite</string>
+    <string name="title_search_fragment">Search</string>
+    <string name="title_setting_fragment">Setting</string>
 </resources>

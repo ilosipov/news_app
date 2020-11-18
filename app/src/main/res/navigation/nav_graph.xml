@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/newsFragment">
+
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="com.ilosipov.news_app.fragments.NewsListFragment"
+        android:label="NewsListFragment" />
+    <fragment
+        android:id="@+id/newsFavFragment"
+        android:name="com.ilosipov.news_app.fragments.NewsFavFragment"
+        android:label="NewsFavFragment" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.ilosipov.news_app.fragments.SearchFragment"
+        android:label="SearchFragment" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.ilosipov.news_app.fragments.SettingsFragment"
+        android:label="SettingsFragment" />
+
+</navigation>
