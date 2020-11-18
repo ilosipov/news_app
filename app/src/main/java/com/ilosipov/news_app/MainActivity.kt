@@ -9,7 +9,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.ilosipov.news_app.databinding.ActivityMainBinding
 
 /**
- * Class MainActivity
+ * Class MainActivity - main activity
  * @author Ilya Osipov (mailto:il.osipov.gm@gmail.com)
  * @since 18.11.2020
  * @version $Id$
