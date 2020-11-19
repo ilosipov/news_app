@@ -1,6 +1,5 @@
 package com.ilosipov.news_app.ui.news
 
-import android.view.View
 import com.ilosipov.news_app.data.NewsItem
 import com.ilosipov.news_app.databinding.ItemNewsImageBinding
 import com.ilosipov.news_app.databinding.ItemNewsTextBinding
@@ -12,10 +11,11 @@ import com.ilosipov.news_app.databinding.ItemNewsTextBinding
  * @version $Id$
  */
 
-class ImageViewHolder(itemView: View) : BaseViewHolder(itemView) {
+class ImageViewHolder(private var itemNewsImageBinding: ItemNewsImageBinding) :
+        BaseViewHolder(itemNewsImageBinding.root) {
 
     override fun bindData(item: NewsItem) {
-        TODO("Not yet implemented")
+        itemNewsImageBinding.newsItemImage = item
     }
 
     override fun getItemNewsTextBinding(): ItemNewsTextBinding {
