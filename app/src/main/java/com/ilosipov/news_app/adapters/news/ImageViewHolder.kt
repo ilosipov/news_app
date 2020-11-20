@@ -1,21 +1,22 @@
-package com.ilosipov.news_app.ui.news
+package com.ilosipov.news_app.adapters.news
 
+import com.ilosipov.news_app.adapters.BaseViewHolder
 import com.ilosipov.news_app.data.NewsItem
 import com.ilosipov.news_app.databinding.ItemNewsImageBinding
 import com.ilosipov.news_app.databinding.ItemNewsTextBinding
 
 /**
- * Class TextViewHolder
+ * Class ImageViewHolder
  * @author Ilya Osipov (mailto:il.osipov.gm@gmail.com)
  * @since 18.11.2020
  * @version $Id$
  */
 
-class TextViewHolder(private var itemNewsTextBinding: ItemNewsTextBinding) :
-        BaseViewHolder(itemNewsTextBinding.root) {
+class ImageViewHolder(private var itemNewsImageBinding: ItemNewsImageBinding) :
+        BaseViewHolder(itemNewsImageBinding.root) {
 
     override fun bindData(item: NewsItem) {
-        itemNewsTextBinding.newsItemText = item
+        itemNewsImageBinding.newsItemImage = item
     }
 
     override fun getItemNewsTextBinding(): ItemNewsTextBinding {

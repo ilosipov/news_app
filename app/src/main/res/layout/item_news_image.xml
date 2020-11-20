@@ -19,6 +19,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:scaleType="centerCrop"
+            glide_url="@{NewsItemImage.newsImg}"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -31,6 +32,7 @@
             android:layout_width="0dp"
             android:layout_height="120dp"
             android:alpha="0.9"
+            set_background="@{NewsItemImage.bgColor}"
             app:srcCompat="#FFC107"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -43,8 +45,10 @@
             android:layout_height="36dp"
             android:layout_marginStart="16dp"
             android:layout_marginBottom="16dp"
+            glide_circular="@{NewsItemImage.userImg}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
+            tools:srcCompat="@tools:sample/avatars"
             tools:ignore="ContentDescription" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -53,6 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
+            android:text="@{NewsItemImage.title}"
             app:layout_constraintBottom_toTopOf="@+id/item_news_img_userimg"
             app:layout_constraintTop_toTopOf="@+id/item_news_img_background"
             app:layout_constraintEnd_toEndOf="@+id/item_news_img_background"
@@ -64,6 +69,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:text="@{NewsItemImage.userName"
             app:layout_constraintTop_toTopOf="@+id/item_news_img_userimg"
             app:layout_constraintStart_toEndOf="@+id/item_news_img_userimg"
             app:layout_constraintBottom_toBottomOf="@+id/item_news_img_userimg"

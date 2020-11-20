@@ -1,4 +1,4 @@
-package com.ilosipov.news_app.ui.news
+package com.ilosipov.news_app.adapters
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

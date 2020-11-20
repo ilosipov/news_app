@@ -1,13 +1,12 @@
-package com.ilosipov.news_app.ui.news
+package com.ilosipov.news_app.adapters.news
 
-import android.content.Context
-import android.text.Layout
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.ilosipov.news_app.R
+import com.ilosipov.news_app.adapters.BaseViewHolder
 import com.ilosipov.news_app.data.NewsItem
 import com.ilosipov.news_app.listeners.OnNewsItemClickEvent
 
