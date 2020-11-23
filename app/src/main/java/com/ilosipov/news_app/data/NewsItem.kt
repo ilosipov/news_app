@@ -10,15 +10,15 @@ import java.util.*
  */
 
 data class NewsItem(
-        val id: Int,
-        val title: String,
-        val userName: String,
-        val newsImg: String,
-        val userImg: String,
-        val content: String,
-        val bgColor: String,
-        val dateCreation: Date,
-        val viewType: Int,
-        val videoUrl: String,
+        var id: Int,
+        var title: String?,
+        var userName: String?,
+        var newsImg: String?,
+        var userImg: String?,
+        var content: String?,
+        var bgColor: String?,
+        var dateCreation: Date?,
+        var viewType: Int,
+        var videoUrl: String = "",
         var isFav: Boolean = false
 )

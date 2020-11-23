@@ -4,10 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.ilosipov.news_app.R
 import com.ilosipov.news_app.adapters.BaseViewHolder
 import com.ilosipov.news_app.data.NewsItem
+import com.ilosipov.news_app.databinding.ItemNewsImageBinding
+import com.ilosipov.news_app.databinding.ItemNewsTextBinding
 import com.ilosipov.news_app.listeners.OnNewsItemClickEvent
 
 /**
@@ -17,7 +20,8 @@ import com.ilosipov.news_app.listeners.OnNewsItemClickEvent
  * @version $Id$
  */
 
-class NewsAdapter(diffCallback: DiffUtil.ItemCallback<NewsItem>) : RecyclerView.Adapter<BaseViewHolder>() {
+class NewsAdapter(diffCallback: DiffUtil.ItemCallback<NewsItem>) :
+    ListAdapter<NewsItem, BaseViewHolder>(diffCallback) {
 
     private lateinit var listener: OnNewsItemClickEvent
 
@@ -29,27 +33,27 @@ class NewsAdapter(diffCallback: DiffUtil.ItemCallback<NewsItem>) : RecyclerView.
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder =
             when (viewType) {
-                VIEWTYPE_NEWS_TEXT -> TextViewHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context),
+                VIEWTYPE_NEWS_TEXT -> {
+                    val itemNewsTextBinding : ItemNewsTextBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.context),
                         R.layout.item_news_text, parent, false)
-                )
-                VIEWTYPE_NEWS_IMAGE -> ImageViewHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context),
+                    TextViewHolder(itemNewsTextBinding)
+                }
+                VIEWTYPE_NEWS_IMAGE -> {
+                    val itemNewsImageBinding : ItemNewsImageBinding  = DataBindingUtil.inflate(LayoutInflater.from(parent.context),
                         R.layout.item_news_image, parent, false)
-                )
+                    ImageViewHolder(itemNewsImageBinding)
+                }
                 else -> TextViewHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context),
                         R.layout.item_news_text, parent, false)
                 )
             }
 
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        holder.bindData(getItem(position))
     }
 
     override fun getItemViewType(position: Int): Int {
-        return position
-    }
-
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return getItem(position).viewType
     }
 
     fun setOnNewsItemClickListener(listener: OnNewsItemClickEvent) {
