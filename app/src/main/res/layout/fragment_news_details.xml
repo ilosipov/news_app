@@ -1,17 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <data>
+        <variable
+            name="NewsItemData"
+            type="com.ilosipov.news_app.data.NewsItem" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="NewsDetailsFragment"
-            android:gravity="center"/>
+            android:layout_height="match_parent">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/details_img_news"
+                android:layout_width="0dp"
+                android:layout_height="210dp"
+                android:scaleType="centerCrop"
+                glide_url="@{NewsItemData.newsImg}"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:srcCompat="@tools:sample/backgrounds/scenic"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/details_img_user"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="24dp"
+                glide_circular="@{NewsItemData.userImg}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/details_img_news"
+                app:layout_constraintBottom_toBottomOf="@+id/details_img_news"
+                tools:srcCompat="@tools:sample/avatars"
+                tools:ignore="ContentDescription" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/details_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="36sp"
+                android:layout_margin="16dp"
+                android:text="@{NewsItemData.title}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/details_img_user"
+                tools:text="Title"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/details_user_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/blue"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@+id/details_title"
+                app:layout_constraintTop_toBottomOf="@+id/details_title"
+                tools:text="user name"/>
+
+            <ImageView
+                android:id="@+id/details_img_fav"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_detail_favorite"
+                android:layout_marginStart="16dp"
+                set_checked="@{NewsItemData.fav}"
+                app:layout_constraintTop_toTopOf="@+id/details_user_name"
+                app:layout_constraintStart_toEndOf="@+id/details_user_name"
+                app:layout_constraintBottom_toBottomOf="@+id/details_user_name"
+                tools:ignore="ContentDescription" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/details_content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textSize="24sp"
+                android:text="@{NewsItemData.content}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/details_user_name"
+                tools:text="Text content"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 </layout>

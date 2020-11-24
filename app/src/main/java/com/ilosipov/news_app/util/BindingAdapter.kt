@@ -36,4 +36,12 @@ object BindingAdapter {
                 "PURPLE" -> imageView.setBackgroundColor(ContextCompat.getColor(imageView.context, R.color.purple))
                 else -> imageView.setBackgroundColor(ContextCompat.getColor(imageView.context, R.color.red))
             }
+
+    @JvmStatic
+    @BindingAdapter("set_checked")
+    fun toggleFav(imageView: ImageView, isFav: Boolean) =
+            if (isFav)
+                imageView.setColorFilter(ContextCompat.getColor(imageView.context, R.color.color_ic_fav_positive))
+            else
+                imageView.setColorFilter(ContextCompat.getColor(imageView.context, R.color.color_ic_fav_negative))
 }

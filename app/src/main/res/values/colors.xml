@@ -13,4 +13,7 @@
     <color name="black_II">#1E1E1E</color>
     <color name="blue">#008DFC</color>
     <color name="yellow">#FED149</color>
+
+    <color name="color_ic_fav_positive">#F96335</color>
+    <color name="color_ic_fav_negative">#A2A2A2</color>
 </resources>

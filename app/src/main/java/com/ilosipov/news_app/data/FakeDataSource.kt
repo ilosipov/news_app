@@ -4,14 +4,10 @@ import android.util.Log
 import java.util.*
 
 /**
- *
- * this fake data source class is a testing class that will be used to generate some random data
- *
- */
-/**
- *
- * this fake data source class is a testing class that will be used to generate some random data
- *
+ * Class FakeDataSource - this fake data source class is a testing class that will be used to generate some random data
+ * @author Ilya Osipov (mailto:il.osipov.gm@mail.com)
+ * @since 24.11.2020
+ * @version $Id$
  */
 /**
  * this class provides a List of news item
@@ -29,7 +25,7 @@ import java.util.*
  * }
  */
 class FakeDataSource {
-    var random: Random = Random()
+    private var random: Random = Random()
 
     /** News item data format
      *
@@ -65,314 +61,108 @@ class FakeDataSource {
     val fakeStaticListNews: List<NewsItem>
         get() {
             val data: MutableList<NewsItem> = ArrayList()
-            data.add(NewsItem(
-                    0,
-                    TXT_TITLE_01,
-                    TXT_NAME_01,
-                    IMG_NEWS_01,
-                    IMG_USER_01,
-                    randomContent,
-                    lstColors[0],
-                    Date(),
-                    1
-            ))
-            data.add(NewsItem(
-                    1,
-                    TXT_TITLE_02,
-                    TXT_NAME_02,
-                    IMG_NEWS_02,
-                    IMG_USER_02,
-                    randomContent,
-                    lstColors[2],
-                    Date(),
-                    0
-            ))
-            data.add(NewsItem(
-                    2,
-                    TXT_TITLE_03,
-                    TXT_NAME_03,
-                    IMG_NEWS_03,
-                    IMG_USER_03,
-                    randomContent,
-                    lstColors[0],
-                    Date(),
-                    0
-            ))
-            data.add(NewsItem(
-                    3,
-                    TXT_TITLE_04,
-                    TXT_NAME_04,
-                    IMG_NEWS_02,
-                    IMG_USER_04,
-                    randomContent,
-                    lstColors[2],
-                    Date(),
-                    1
-            ))
-            data.add(NewsItem(
-                    4,
-                    TXT_TITLE_05,
-                    TXT_NAME_01,
-                    IMG_NEWS_03,
-                    IMG_USER_05,
-                    randomContent,
-                    lstColors[1],
-                    Date(),
-                    1
-            ))
-            data.add(NewsItem(
-                    5,
-                    TXT_TITLE_03,
-                    TXT_NAME_01,
-                    IMG_NEWS_02,
-                    IMG_USER_03,
-                    randomContent,
-                    lstColors[1],
-                    Date(),
-                    0
-            ))
-            data.add(NewsItem(
-                    6,
-                    TXT_TITLE_01,
-                    TXT_NAME_01,
-                    IMG_NEWS_01,
-                    IMG_USER_01,
-                    randomContent,
-                    lstColors[2],
-                    Date(),
-                    0
-            ))
-            data.add(NewsItem(
-                    7,
-                    TXT_TITLE_01,
-                    TXT_NAME_01,
-                    IMG_NEWS_01,
-                    IMG_USER_01,
-                    randomContent,
-                    lstColors[3],
-                    Date(),
-                    1
-            ))
-            data.add(NewsItem(
-                    8,
-                    TXT_TITLE_01,
-                    TXT_NAME_01,
-                    IMG_NEWS_10,
-                    IMG_USER_01,
-                    randomContent,
-                    lstColors[2],
-                    Date(),
-                    1
-            ))
-            data.add(NewsItem(
-                    9,
-                    TXT_TITLE_01,
-                    TXT_NAME_01,
-                    IMG_NEWS_08,
-                    IMG_USER_01,
-                    randomContent,
-                    lstColors[1],
-                    Date(),
-                    0
-            ))
-            return data
+            return data.apply {
+                add(NewsItem(0, TXT_TITLE_01, TXT_NAME_01, IMG_NEWS_01, IMG_USER_01,
+                        randomContent, lstColors[0], Date(), 1))
+                add(NewsItem(1, TXT_TITLE_02, TXT_NAME_02, IMG_NEWS_02, IMG_USER_02,
+                        randomContent, lstColors[2], Date(), 0))
+                add(NewsItem(2, TXT_TITLE_03, TXT_NAME_03, IMG_NEWS_03, IMG_USER_03,
+                        randomContent, lstColors[0], Date(), 0))
+                add(NewsItem(3, TXT_TITLE_04, TXT_NAME_04, IMG_NEWS_02, IMG_USER_04,
+                        randomContent, lstColors[2], Date(), 1))
+                add(NewsItem(4, TXT_TITLE_05, TXT_NAME_01, IMG_NEWS_03, IMG_USER_05,
+                        randomContent, lstColors[1], Date(), 1))
+                add(NewsItem(5, TXT_TITLE_03, TXT_NAME_01, IMG_NEWS_02, IMG_USER_03,
+                        randomContent, lstColors[1], Date(), 0))
+                add(NewsItem(6, TXT_TITLE_01, TXT_NAME_01, IMG_NEWS_01, IMG_USER_01,
+                        randomContent, lstColors[2], Date(), 0))
+                add(NewsItem(7, TXT_TITLE_01, TXT_NAME_01, IMG_NEWS_01, IMG_USER_01,
+                        randomContent, lstColors[3], Date(), 1))
+                add(NewsItem(8, TXT_TITLE_01, TXT_NAME_01, IMG_NEWS_10, IMG_USER_01,
+                        randomContent, lstColors[2], Date(), 1))
+                add(NewsItem(9, TXT_TITLE_01, TXT_NAME_01, IMG_NEWS_08, IMG_USER_01,
+                        randomContent, lstColors[1], Date(), 0))
+            }
         }
 
     // generate an updated static news list
     val fakeUpdatedStaticListNews: List<NewsItem>
         get() {
             val data: MutableList<NewsItem> = ArrayList()
-            data.add(NewsItem(
-                    -4,
-                    TXT_TITLE_01,
-                    TXT_NAME_01,
-                    IMG_NEWS_10,
-                    IMG_USER_01,
-                    randomContent,
-                    lstColors[0],
-                    Date(),
-                    1
-            ))
-            data.add(NewsItem(
-                    -3,
-                    TXT_TITLE_02,
-                    TXT_NAME_02,
-                    IMG_NEWS_02,
-                    IMG_USER_02,
-                    randomContent,
-                    lstColors[2],
-                    Date(),
-                    0
-            ))
-            data.add(NewsItem(
-                    -2,
-                    TXT_TITLE_03,
-                    TXT_NAME_03,
-                    IMG_NEWS_07,
-                    IMG_USER_03,
-                    randomContent,
-                    lstColors[0],
-                    Date(),
-                    0
-            ))
-            data.add(NewsItem(
-                    -1,
-                    TXT_TITLE_04,
-                    TXT_NAME_04,
-                    IMG_NEWS_09,
-                    IMG_USER_04,
-                    randomContent,
-                    lstColors[2],
-                    Date(),
-                    1
-            ))
-            data.add(NewsItem(
-                    0,
-                    TXT_TITLE_01,
-                    TXT_NAME_01,
-                    IMG_NEWS_01,
-                    IMG_USER_01,
-                    randomContent,
-                    lstColors[0],
-                    Date(),
-                    1
-            ))
-            data.add(NewsItem(
-                    1,
-                    TXT_TITLE_02,
-                    TXT_NAME_02,
-                    IMG_NEWS_02,
-                    IMG_USER_02,
-                    randomContent,
-                    lstColors[2],
-                    Date(),
-                    0
-            ))
-            data.add(NewsItem(
-                    2,
-                    TXT_TITLE_03,
-                    TXT_NAME_03,
-                    IMG_NEWS_03,
-                    IMG_USER_03,
-                    randomContent,
-                    lstColors[0],
-                    Date(),
-                    0
-            ))
-            data.add(NewsItem(
-                    3,
-                    TXT_TITLE_04,
-                    TXT_NAME_04,
-                    IMG_NEWS_02,
-                    IMG_USER_04,
-                    randomContent,
-                    lstColors[2],
-                    Date(),
-                    1
-            ))
-            data.add(NewsItem(
-                    4,
-                    TXT_TITLE_05,
-                    TXT_NAME_01,
-                    IMG_NEWS_03,
-                    IMG_USER_05,
-                    randomContent,
-                    lstColors[1],
-                    Date(),
-                    1
-            ))
-            data.add(NewsItem(
-                    5,
-                    TXT_TITLE_03,
-                    TXT_NAME_01,
-                    IMG_NEWS_02,
-                    IMG_USER_03,
-                    randomContent,
-                    lstColors[1],
-                    Date(),
-                    0
-            ))
-            data.add(NewsItem(
-                    6,
-                    TXT_TITLE_01,
-                    TXT_NAME_01,
-                    IMG_NEWS_01,
-                    IMG_USER_01,
-                    randomContent,
-                    lstColors[2],
-                    Date(),
-                    0
-            ))
-            data.add(NewsItem(
-                    7,
-                    TXT_TITLE_01,
-                    TXT_NAME_01,
-                    IMG_NEWS_01,
-                    IMG_USER_01,
-                    randomContent,
-                    lstColors[3],
-                    Date(),
-                    1
-            ))
-            data.add(NewsItem(
-                    8,
-                    TXT_TITLE_01,
-                    TXT_NAME_01,
-                    IMG_NEWS_10,
-                    IMG_USER_01,
-                    randomContent,
-                    lstColors[2],
-                    Date(),
-                    1
-            ))
-            data.add(NewsItem(
-                    9,
-                    TXT_TITLE_01,
-                    TXT_NAME_01,
-                    IMG_NEWS_08,
-                    IMG_USER_01,
-                    randomContent,
-                    lstColors[1],
-                    Date(),
-                    0
-            ))
-            return data
+            return data.apply {
+                add(NewsItem(-4, TXT_TITLE_01, TXT_NAME_01, IMG_NEWS_10, IMG_USER_01,
+                        randomContent, lstColors[0], Date(), 1))
+                add(NewsItem(-3, TXT_TITLE_02, TXT_NAME_02, IMG_NEWS_02, IMG_USER_02,
+                        randomContent, lstColors[2], Date(), 0))
+                add(NewsItem(-2, TXT_TITLE_03, TXT_NAME_03, IMG_NEWS_07, IMG_USER_03,
+                        randomContent, lstColors[0], Date(), 0))
+                add(NewsItem(-1, TXT_TITLE_04, TXT_NAME_04, IMG_NEWS_09, IMG_USER_04,
+                        randomContent, lstColors[2], Date(), 1))
+                add(NewsItem(0, TXT_TITLE_01, TXT_NAME_01, IMG_NEWS_01, IMG_USER_01,
+                        randomContent, lstColors[0], Date(), 1))
+                add(NewsItem(1, TXT_TITLE_02, TXT_NAME_02, IMG_NEWS_02, IMG_USER_02,
+                        randomContent, lstColors[2], Date(), 0))
+                add(NewsItem(2, TXT_TITLE_03, TXT_NAME_03, IMG_NEWS_03, IMG_USER_03,
+                        randomContent, lstColors[0], Date(), 0))
+                add(NewsItem(3, TXT_TITLE_04, TXT_NAME_04, IMG_NEWS_02, IMG_USER_04,
+                        randomContent, lstColors[2], Date(), 1))
+                add(NewsItem(4, TXT_TITLE_05, TXT_NAME_01, IMG_NEWS_03, IMG_USER_05,
+                        randomContent, lstColors[1], Date(), 1))
+                add(NewsItem(5, TXT_TITLE_03, TXT_NAME_01, IMG_NEWS_02, IMG_USER_03,
+                        randomContent, lstColors[1], Date(), 0))
+                add(NewsItem(6, TXT_TITLE_01, TXT_NAME_01, IMG_NEWS_01, IMG_USER_01,
+                        randomContent, lstColors[2], Date(), 0))
+                add(NewsItem(7, TXT_TITLE_01, TXT_NAME_01, IMG_NEWS_01, IMG_USER_01,
+                        randomContent, lstColors[3], Date(), 1))
+                add(NewsItem(8, TXT_TITLE_01, TXT_NAME_01, IMG_NEWS_10, IMG_USER_01,
+                        randomContent, lstColors[2], Date(), 1))
+                add(NewsItem(9, TXT_TITLE_01, TXT_NAME_01, IMG_NEWS_08, IMG_USER_01,
+                        randomContent, lstColors[1], Date(), 0))
+            }
         }
 
     private fun initListNewsImages() {
-        listNewsImage.add(IMG_NEWS_01)
-        listNewsImage.add(IMG_NEWS_02)
-        listNewsImage.add(IMG_NEWS_03)
-        listNewsImage.add(IMG_NEWS_04)
-        listNewsImage.add(IMG_NEWS_05)
-        listNewsImage.add(IMG_NEWS_06)
-        listNewsImage.add(IMG_NEWS_07)
-        listNewsImage.add(IMG_NEWS_08)
-        listNewsImage.add(IMG_NEWS_09)
-        listNewsImage.add(IMG_NEWS_10)
+        listNewsImage.apply {
+            add(IMG_NEWS_01)
+            add(IMG_NEWS_02)
+            add(IMG_NEWS_03)
+            add(IMG_NEWS_04)
+            add(IMG_NEWS_05)
+            add(IMG_NEWS_06)
+            add(IMG_NEWS_07)
+            add(IMG_NEWS_08)
+            add(IMG_NEWS_09)
+            add(IMG_NEWS_10)
+        }
     }
 
     private fun initListUserImages() {
-        listUserImage.add(IMG_USER_01)
-        listUserImage.add(IMG_USER_02)
-        listUserImage.add(IMG_USER_03)
-        listUserImage.add(IMG_USER_04)
-        listUserImage.add(IMG_USER_05)
+        listUserImage.apply {
+            add(IMG_USER_01)
+            add(IMG_USER_02)
+            add(IMG_USER_03)
+            add(IMG_USER_04)
+            add(IMG_USER_05)
+        }
     }
 
     private fun initListNewsTitle() {
-        listNewsTitles.add(TXT_TITLE_01)
-        listNewsTitles.add(TXT_TITLE_02)
-        listNewsTitles.add(TXT_TITLE_03)
-        listNewsTitles.add(TXT_TITLE_04)
-        listNewsTitles.add(TXT_TITLE_05)
+        listNewsTitles.apply {
+            add(TXT_TITLE_01)
+            add(TXT_TITLE_02)
+            add(TXT_TITLE_03)
+            add(TXT_TITLE_04)
+            add(TXT_TITLE_05)
+        }
     }
 
     fun initListUsername() {
-        listUserNames.add(TXT_NAME_01)
-        listUserNames.add(TXT_NAME_02)
-        listUserNames.add(TXT_NAME_03)
-        listUserNames.add(TXT_NAME_04)
+        listUserNames.apply {
+            add(TXT_NAME_01)
+            add(TXT_NAME_02)
+            add(TXT_NAME_03)
+            add(TXT_NAME_04)
+        }
     }
 
     var listNewsImage: MutableList<String> = ArrayList()
@@ -389,42 +179,42 @@ class FakeDataSource {
 
     // generate a random string title
     private val randomNewsTitle: String
-        private get() {
+        get() {
             val index = random.nextInt(listNewsTitles.size)
             return listNewsTitles[index]
         }
 
     // generate a random news image url string
     private val randomNewsImage: String
-        private get() {
+        get() {
             val index = random.nextInt(listNewsImage.size)
             return listNewsImage[index]
         }
 
     // generate a random news image url string
     private val randomUserImage: String
-        private get() {
+        get() {
             val index = random.nextInt(listUserImage.size)
             return listUserImage[index]
         }
 
     // generate a random String Content
     private val randomUsername: String
-        private get() {
+        get() {
             val index = random.nextInt(listUserNames.size)
             return listUserNames[index]
         }
 
     // generate a random news background color
     private val randomBgColor: String
-        private get() {
+        get() {
             val index = random.nextInt(lstColors.size)
             return lstColors[index]
         }
 
     // generate random date
     private val randomDate: Date
-        private get() = Date()
+        get() = Date()
 
     // generate a viewtype based on the index and the list size
     // this specify the view grid system of the format of the news system list
@@ -492,7 +282,6 @@ class FakeDataSource {
     }
 
     init {
-        random = Random()
         initListNewsImages()
         initListUserImages()
         initListNewsTitle()

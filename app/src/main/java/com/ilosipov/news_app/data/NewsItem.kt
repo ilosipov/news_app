@@ -18,5 +18,6 @@ data class NewsItem(
         var content: String?,
         var bgColor: String?,
         var dateCreation: Date?,
-        var viewType: Int
+        var viewType: Int,
+        var fav: Boolean = false
 )
