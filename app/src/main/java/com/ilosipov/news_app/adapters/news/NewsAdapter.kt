@@ -33,19 +33,15 @@ class NewsAdapter(diffCallback: DiffUtil.ItemCallback<NewsItem>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder =
             when (viewType) {
-                VIEWTYPE_NEWS_TEXT -> {
-                    val itemNewsTextBinding : ItemNewsTextBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.context),
-                        R.layout.item_news_text, parent, false)
-                    TextViewHolder(itemNewsTextBinding)
-                }
-                VIEWTYPE_NEWS_IMAGE -> {
-                    val itemNewsImageBinding : ItemNewsImageBinding  = DataBindingUtil.inflate(LayoutInflater.from(parent.context),
-                        R.layout.item_news_image, parent, false)
-                    ImageViewHolder(itemNewsImageBinding)
-                }
-                else -> TextViewHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context),
-                        R.layout.item_news_text, parent, false)
-                )
+                VIEWTYPE_NEWS_TEXT -> TextViewHolder(DataBindingUtil.inflate(
+                        LayoutInflater.from(parent.context), R.layout.item_news_text, parent, false
+                ))
+                VIEWTYPE_NEWS_IMAGE -> ImageViewHolder(DataBindingUtil.inflate(
+                        LayoutInflater.from(parent.context), R.layout.item_news_image, parent, false
+                ))
+                else -> TextViewHolder(DataBindingUtil.inflate(
+                        LayoutInflater.from(parent.context), R.layout.item_news_text, parent, false
+                ))
             }
 
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {

@@ -19,11 +19,7 @@ class ImageViewHolder(private var itemNewsImageBinding: ItemNewsImageBinding) :
         itemNewsImageBinding.newsItemImage = item
     }
 
-    override fun getItemNewsTextBinding(): ItemNewsTextBinding {
-        TODO("Not yet implemented")
-    }
+    override fun getItemNewsTextBinding(): ItemNewsTextBinding? = null
 
-    override fun getItemNewsImageBinding(): ItemNewsImageBinding {
-        TODO("Not yet implemented")
-    }
+    override fun getItemNewsImageBinding(): ItemNewsImageBinding? = null
 }

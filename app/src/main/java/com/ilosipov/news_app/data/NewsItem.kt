@@ -18,7 +18,5 @@ data class NewsItem(
         var content: String?,
         var bgColor: String?,
         var dateCreation: Date?,
-        var viewType: Int,
-        var videoUrl: String = "",
-        var isFav: Boolean = false
+        var viewType: Int
 )

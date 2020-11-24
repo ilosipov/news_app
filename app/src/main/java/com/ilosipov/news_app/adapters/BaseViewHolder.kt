@@ -17,6 +17,6 @@ abstract class BaseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView
 
     abstract fun bindData(item: NewsItem)
 
-    abstract fun getItemNewsTextBinding(): ItemNewsTextBinding
-    abstract fun getItemNewsImageBinding(): ItemNewsImageBinding
+    abstract fun getItemNewsTextBinding(): ItemNewsTextBinding?
+    abstract fun getItemNewsImageBinding(): ItemNewsImageBinding?
 }
