@@ -1,17 +1,21 @@
 package com.ilosipov.news_app.adapters.news
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import com.ilosipov.news_app.R
 import com.ilosipov.news_app.adapters.BaseViewHolder
 import com.ilosipov.news_app.data.NewsItem
 import com.ilosipov.news_app.databinding.ItemNewsImageBinding
 import com.ilosipov.news_app.databinding.ItemNewsTextBinding
 import com.ilosipov.news_app.listeners.OnNewsItemClickEvent
+import com.google.android.material.snackbar.Snackbar.make as make1
 
 /**
  * Class NewsAdapter
@@ -45,7 +49,10 @@ class NewsAdapter(diffCallback: DiffUtil.ItemCallback<NewsItem>) :
             }
 
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
-        holder.bindData(getItem(position))
+        holder.apply {
+            bindData(getItem(position))
+            itemView.setOnClickListener { listener.onItemClick(it, position) }
+        }
     }
 
     override fun getItemViewType(position: Int): Int {

@@ -1,5 +1,7 @@
 package com.ilosipov.news_app.listeners
 
+import android.view.View
+
 /**
  * OnNewsItemClickEvent
  * @author Ilya Osipov (mailto:il.osipov.gm@gmail.com)
@@ -11,4 +13,5 @@ interface OnNewsItemClickEvent {
     fun onItemTextClick()
     fun onItemImageClick()
     fun onItemLongClick()
+    fun onItemClick(view: View, position: Int)
 }
