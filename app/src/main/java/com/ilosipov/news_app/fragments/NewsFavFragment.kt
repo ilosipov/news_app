@@ -21,7 +21,7 @@ class NewsFavFragment : Fragment() {
     private lateinit var binding: FragmentNewsFavBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+                              savedInstanceState: Bundle?): View {
         binding = DataBindingUtil.inflate(LayoutInflater.from(requireContext()),
             R.layout.fragment_news_fav, container, false)
         return binding.root

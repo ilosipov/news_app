@@ -8,7 +8,11 @@
     <fragment
         android:id="@+id/newsFragment"
         android:name="com.ilosipov.news_app.fragments.NewsListFragment"
-        android:label="NewsListFragment" />
+        android:label="NewsListFragment" >
+        <action
+            android:id="@+id/action_newsFragment_to_newsDetailsFragment"
+            app:destination="@id/newsDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/newsFavFragment"
         android:name="com.ilosipov.news_app.fragments.NewsFavFragment"
@@ -21,5 +25,13 @@
         android:id="@+id/settingsFragment"
         android:name="com.ilosipov.news_app.fragments.SettingsFragment"
         android:label="SettingsFragment" />
+    <fragment
+        android:id="@+id/newsDetailsFragment"
+        android:name="com.ilosipov.news_app.fragments.NewsDetailsFragment"
+        android:label="NewsDetailsFragment" >
+        <action
+            android:id="@+id/action_newsDetailsFragment_to_newsFragment"
+            app:destination="@id/newsFragment" />
+    </fragment>
 
 </navigation>

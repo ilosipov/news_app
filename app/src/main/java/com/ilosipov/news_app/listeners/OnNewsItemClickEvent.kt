@@ -10,8 +10,5 @@ import android.view.View
  */
 
 interface OnNewsItemClickEvent {
-    fun onItemTextClick()
-    fun onItemImageClick()
-    fun onItemLongClick()
     fun onItemClick(view: View, position: Int)
 }

@@ -1,5 +1,6 @@
 package com.ilosipov.news_app.data
 
+import java.io.Serializable
 import java.util.*
 
 /**
@@ -20,4 +21,4 @@ data class NewsItem(
         var dateCreation: Date?,
         var viewType: Int,
         var fav: Boolean = false
-)
+) : Serializable

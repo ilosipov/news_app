@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.ilosipov.news_app.R
@@ -15,6 +16,7 @@ import com.ilosipov.news_app.adapters.news.NewsAdapter
 import com.ilosipov.news_app.data.FakeDataSource
 import com.ilosipov.news_app.databinding.FragmentNewsListBinding
 import com.ilosipov.news_app.listeners.OnNewsItemClickEvent
+import java.io.Serializable
 
 /**
  * Class NewsListFragment
@@ -50,11 +52,11 @@ class NewsListFragment : Fragment() {
             layoutManager = GridLayoutManager(context, 2)
             adapterNews = NewsAdapter(DiffUtilNewsItemCallback()).apply {
                 setOnNewsItemClickListener(object : OnNewsItemClickEvent {
-                    override fun onItemTextClick() {}
-                    override fun onItemImageClick() {}
-                    override fun onItemLongClick() {}
                     override fun onItemClick(view: View, position: Int) {
-                        Snackbar.make(view, "Click: ${fakeNewsList[position].title}", Snackbar.LENGTH_SHORT).show()
+                        findNavController().navigate(R.id.action_newsFragment_to_newsDetailsFragment,
+                                Bundle().apply {
+                                    putSerializable("news_item_data", fakeNewsList[position])
+                                })
                     }
                 })
             }
