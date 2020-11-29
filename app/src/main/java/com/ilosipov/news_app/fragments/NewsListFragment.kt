@@ -1,6 +1,8 @@
 package com.ilosipov.news_app.fragments
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +11,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.ilosipov.news_app.R
 import com.ilosipov.news_app.adapters.news.DiffUtilNewsItemCallback
@@ -62,6 +65,22 @@ class NewsListFragment : Fragment() {
             }
             adapter = adapterNews
             adapterNews.submitList(fakeNewsList)
+        }
+
+        binding.newsSwipeRefresh.setOnRefreshListener {
+            Handler(Looper.getMainLooper()).postDelayed({
+                run {
+                    adapterNews.submitList(FakeDataSource().fakeUpdatedStaticListNews)
+                    binding.newsSwipeRefresh.isRefreshing = false
+
+                    adapterNews.registerAdapterDataObserver(object : RecyclerView.AdapterDataObserver() {
+                        override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
+                            super.onItemRangeInserted(positionStart, itemCount)
+                            binding.rvListNews.smoothScrollToPosition(positionStart)
+                        }
+                    })
+                }
+            }, 1200)
         }
     }
 }

@@ -60,6 +60,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/blue"
                 android:layout_marginTop="16dp"
+                android:text="@{NewsItemData.userName}"
                 app:layout_constraintStart_toStartOf="@+id/details_title"
                 app:layout_constraintTop_toBottomOf="@+id/details_title"
                 tools:text="user name"/>
@@ -85,6 +86,7 @@
                 android:text="@{NewsItemData.content}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/details_user_name"
                 tools:text="Text content"/>
 
