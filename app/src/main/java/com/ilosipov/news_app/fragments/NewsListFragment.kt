@@ -57,16 +57,7 @@ class NewsListFragment : Fragment(), OnNewsItemClickEvent {
             setHasFixedSize(true)
             layoutManager = GridLayoutManager(requireContext(), 2)
             adapterNews = NewsAdapter(DiffUtilNewsItemCallback()).apply {
-                setOnNewsItemClickListener(this@NewsListFragment
-//                        object : OnNewsItemClickEvent {
-//                    override fun onItemClick(view: View, position: Int) {
-//                        findNavController().navigate(R.id.action_newsFragment_to_newsDetailsFragment,
-//                                Bundle().apply {
-//                                    putSerializable("news_item_data", fakeNewsList[position])
-//                                })
-//                    }
-//                }
-                )
+                setOnNewsItemClickListener(this@NewsListFragment)
             }
             adapter = adapterNews
             adapterNews.submitList(fakeNewsList)
