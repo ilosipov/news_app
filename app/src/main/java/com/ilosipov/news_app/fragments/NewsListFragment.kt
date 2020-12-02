@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
@@ -17,6 +18,7 @@ import com.ilosipov.news_app.R
 import com.ilosipov.news_app.adapters.news.DiffUtilNewsItemCallback
 import com.ilosipov.news_app.adapters.news.NewsAdapter
 import com.ilosipov.news_app.data.FakeDataSource
+import com.ilosipov.news_app.data.NewsItem
 import com.ilosipov.news_app.databinding.FragmentNewsListBinding
 import com.ilosipov.news_app.listeners.OnNewsItemClickEvent
 import java.io.Serializable
@@ -28,10 +30,11 @@ import java.io.Serializable
  * @version $Id$
  */
 
-class NewsListFragment : Fragment() {
+class NewsListFragment : Fragment(), OnNewsItemClickEvent {
 
     private lateinit var binding: FragmentNewsListBinding
     private lateinit var adapterNews: NewsAdapter
+    private lateinit var fakeNewsList: List<NewsItem>
 
     companion object {
         private const val TAG = "NewsListFragment"
@@ -49,19 +52,21 @@ class NewsListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         Log.i(TAG, "onViewCreated: init view")
 
-        val fakeNewsList = FakeDataSource().fakeListNews
+        fakeNewsList = FakeDataSource().fakeListNews
         binding.rvListNews.apply {
             setHasFixedSize(true)
-            layoutManager = GridLayoutManager(context, 2)
+            layoutManager = GridLayoutManager(requireContext(), 2)
             adapterNews = NewsAdapter(DiffUtilNewsItemCallback()).apply {
-                setOnNewsItemClickListener(object : OnNewsItemClickEvent {
-                    override fun onItemClick(view: View, position: Int) {
-                        findNavController().navigate(R.id.action_newsFragment_to_newsDetailsFragment,
-                                Bundle().apply {
-                                    putSerializable("news_item_data", fakeNewsList[position])
-                                })
-                    }
-                })
+                setOnNewsItemClickListener(this@NewsListFragment
+//                        object : OnNewsItemClickEvent {
+//                    override fun onItemClick(view: View, position: Int) {
+//                        findNavController().navigate(R.id.action_newsFragment_to_newsDetailsFragment,
+//                                Bundle().apply {
+//                                    putSerializable("news_item_data", fakeNewsList[position])
+//                                })
+//                    }
+//                }
+                )
             }
             adapter = adapterNews
             adapterNews.submitList(fakeNewsList)
@@ -82,5 +87,12 @@ class NewsListFragment : Fragment() {
                 }
             }, 1200)
         }
+    }
+
+    override fun onItemClick(view: View, position: Int) {
+        findNavController().navigate(R.id.action_newsFragment_to_newsDetailsFragment,
+                Bundle().apply {
+                    putSerializable("news_item_data", fakeNewsList[position])
+                })
     }
 }
