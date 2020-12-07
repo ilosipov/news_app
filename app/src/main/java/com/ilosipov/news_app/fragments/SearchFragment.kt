@@ -19,6 +19,7 @@ import com.ilosipov.news_app.data.NewsItem
 import com.ilosipov.news_app.databinding.FragmentSearchBinding
 import com.ilosipov.news_app.listeners.OnNewsItemClickEvent
 import com.ilosipov.news_app.util.keyboard.ShowSoftwareKeyboard
+import java.util.*
 
 /**
  * Class SearchFragment
@@ -60,15 +61,7 @@ class SearchFragment : Fragment(), OnNewsItemClickEvent, TextWatcher {
             adapter = adapterNews
             adapterNews.submitList(fakeSearchNewsList)
         }
-
-        checkList(fakeSearchNewsList.isEmpty())
-    }
-
-    private fun checkList(isEmpty: Boolean) {
-        binding.apply {
-            rvSearchNews.visibility = if (isEmpty) View.GONE else View.VISIBLE
-            textEmptyList.visibility = if (isEmpty) View.VISIBLE else View.GONE
-        }
+        onCheckEmptyList(fakeSearchNewsList.isEmpty())
     }
 
     override fun onPause() {
@@ -77,20 +70,40 @@ class SearchFragment : Fragment(), OnNewsItemClickEvent, TextWatcher {
         ShowSoftwareKeyboard(requireActivity()).isShow(isVisibility = false)
     }
 
-    override fun beforeTextChanged(char: CharSequence?, start: Int, count: Int, after: Int) {
-    }
+    override fun beforeTextChanged(char: CharSequence?, start: Int, count: Int, after: Int) {}
 
     override fun onTextChanged(char: CharSequence?, start: Int, before: Int, count: Int) {
-        Log.i(TAG, "onTextChanged: char = $char")
+        if (char.isNullOrEmpty()) {
+            adapterNews.submitList(fakeSearchNewsList)
+            adapterNews.notifyDataSetChanged()
+            onCheckEmptyList(false)
+        } else {
+            adapterNews.currentList.filter { it.title!!.contains(char.toString(), ignoreCase = true)
+                    || it.userName!!.contains(char.toString(), ignoreCase = true) }.apply {
+                if (this.isEmpty()) {
+                    onCheckEmptyList(true)
+                } else {
+                    onCheckEmptyList(false)
+                    adapterNews.submitList(this@apply)
+                    adapterNews.notifyDataSetChanged()
+                }
+            }
+        }
     }
 
-    override fun afterTextChanged(editable: Editable?) {
-    }
+    override fun afterTextChanged(editable: Editable?) {}
 
     override fun onItemClick(view: View, position: Int) {
         findNavController().navigate(R.id.action_searchFragment_to_newsDetailsFragment,
                 Bundle().apply {
                     putSerializable("news_item_data", fakeSearchNewsList[position])
                 })
+    }
+
+    private fun onCheckEmptyList(isEmpty: Boolean) {
+        binding.apply {
+            rvSearchNews.visibility = if (isEmpty) View.GONE else View.VISIBLE
+            textEmptyList.visibility = if (isEmpty) View.VISIBLE else View.GONE
+        }
     }
 }
