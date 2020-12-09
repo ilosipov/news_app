@@ -45,10 +45,22 @@ class SettingsFragment : Fragment() {
 
             radioGroupTheme.setOnCheckedChangeListener { _, checkedId ->
                 when (checkedId) {
-                    R.id.rb_light -> settings.setTheme(AppSettings.THEME_LIGHT)
-                    R.id.rb_dark -> settings.setTheme(AppSettings.THEME_DARK)
-                    R.id.rb_system -> settings.setTheme(AppSettings.THEME_SYSTEM)
-                    else -> settings.setTheme(AppSettings.THEME_SYSTEM)
+                    R.id.rb_light -> {
+                        settings.setTheme(AppSettings.THEME_LIGHT)
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                    }
+                    R.id.rb_dark -> {
+                        settings.setTheme(AppSettings.THEME_DARK)
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                    }
+                    R.id.rb_system -> {
+                        settings.setTheme(AppSettings.THEME_SYSTEM)
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.getDefaultNightMode())
+                    }
+                    else -> {
+                        settings.setTheme(AppSettings.THEME_SYSTEM)
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.getDefaultNightMode())
+                    }
                 }
             }
         }
