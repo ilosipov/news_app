@@ -10,4 +10,11 @@
     <!--  SearchFragment string resources  -->
     <string name="text_empty_list">Couldn\'t find anything..</string>
     <string name="hint_search_edit">Enter a title ot author..</string>
+
+    <!--  SettingsFragment string resources  -->
+    <string name="title_sf">Setting Page: Choose your preferred theme light - dark or default system and customize font type and size, any applied changes in this settings page will require you to restart the application.</string>
+    <string name="title_setting_theme">Choose your Preferred Theme</string>
+    <string name="text_rb_light">Light theme</string>
+    <string name="text_rb_dark">Dark theme</string>
+    <string name="text_rb_system">System theme</string>
 </resources>
