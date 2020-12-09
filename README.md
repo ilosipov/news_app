@@ -7,7 +7,8 @@ Just a news app with nice animation
 
 Short review
 -------------
-![sample](./image/first_screen_app.png)
+![sample](./image/screen_news_app_first.png)
+![sample](./image/screen_news_app_second.png)
 
 Contacts
 --------
